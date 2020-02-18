@@ -1,0 +1,168 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.site-footer {
+	background-color: black;
+	padding: 30px 0 20px;
+	font-size: 15px;
+	line-height: 24px;
+	color: black;
+	bottom: 0;
+}
+
+#nav_bar {
+	background-color: black;
+}
+
+@font-face {
+	font-family: f1;
+	src: url(Fonts/Prototype.ttf);
+}
+
+.navbar {
+	font-family: f1;
+}
+
+#F1 {
+	font-family: f1;
+	margin-left: 620px;
+}
+
+#F2 {
+	font-family: f1;
+	display: block;
+}
+
+#d1 {
+	background-color: white;
+	display: inline-block;
+	margin: 0 auto;
+}
+
+#d2 {
+	display: inline-block;
+	margin: 0 auto;
+}
+
+#d2 img {
+	-webkit-transition: opacity 1s ease-in-out;
+	-moz-transition: opacity 1s ease-in-out;
+	-o-transition: opacity 1s ease-in-out;
+	transition: opacity 1s ease-in-out;
+}
+
+#d2 img.top:hover {
+	opacity: 0;
+}
+
+input[type=text], select {
+	color: dodgerblue;
+	border: 1px solid #aaa;
+	background-color: black;
+	border-radius: 20px;
+	margin: 8px 0;
+	outline: none;
+	padding: 8px;
+	padding-left: 60px;
+	box-sizing: border-box;
+	transition: 0.3s;
+	border-color: dodgerBlue;
+	font-family: f1;
+	box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+input[type=password], select {
+	color: dodgerblue;
+	background-color: black;
+	border: 1px solid #aaa;
+	border-radius: 20px;
+	margin: 8px 0;
+	outline: none;
+	padding: 8px;
+	padding-left: 60px;
+	box-sizing: border-box;
+	transition: 0.3s;
+	font-family: f1;
+	border-color: dodgerBlue;
+	box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+input[type=submit] {
+	background-color: black;
+	color: grey;
+	padding: 14px 20px;
+	margin: 8px 0;
+	width: 49.4%;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	font-family: f1;
+	transition: 0.3s;
+	box-shadow: 0 0 10px 0 rgb(0, 0, 0);
+}
+
+#img_tp {
+	width: 101.7%;
+	height: 100%;
+	position: absolute;
+}
+
+input[type="submit"]:hover {
+	border-color: rgb(0, 0, 0);
+	background-color: black;
+	color: dodgerblue;
+	box-shadow: 0 0 10px 0 dodgerBlue;
+}
+
+input[type="text"]:focus {
+	border-color: rgb(0, 0, 0);
+	background-color: black;
+	box-shadow: 0 0 8px 0 rgb(0, 0, 0);
+}
+
+input[type="password"]:focus {
+	border-color: rgb(0, 0, 0);
+	background-color: black;
+	box-shadow: 0 0 8px 0 rgb(0, 0, 0);
+}
+
+#icon_user {
+	position: absolute;
+	margin-top: 16px;
+	height: 4%;
+	margin-left: 10px;
+}
+
+#img_hover {
+	width: 103.4%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 60px
+}
+
+.container {
+	margin: 0;
+	max-width: 100%;
+	min-width: 100%;
+}
+
+#icon_pass {
+	position: absolute;
+	top: 320px;
+	left: 15px;
+	transition: 0.3s;
+}
+
+#login {
+	margin-bottom: 34px;
+	margin-top: 100px;
+	margin-left: 7px;
+	display: inline;
+}
+
+#btn_login {
+	margin-bottom: 21.9%;
+}

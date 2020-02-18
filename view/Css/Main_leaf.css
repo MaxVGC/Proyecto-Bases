@@ -1,0 +1,113 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+#title {
+	color: white;
+}
+
+@font-face {
+	font-family: f1;
+	src: url(Fonts/Prototype.ttf);
+}
+
+.navbar {
+	font-family: f1;
+}
+
+#text_navbar {
+	color: white;
+}
+
+#navbar_list a {
+	color: white;
+	transition: 0.4s;
+	padding: 0%;
+	margin-bottom: 2.5em;
+	margin-top: 1em;
+}
+
+#navbarText a:hover {
+	color: dodgerblue;
+	transition: 0.4s;
+}
+
+#img_user_navbar {
+	width: 2%;
+	margin-right: 1%;
+}
+
+#sidebar {
+	position: fixed;
+	width: 200px;
+	height: 100%;
+	background: black;
+	left: -200px;
+	transition: all 500ms linear;
+}
+
+#navbar2 {
+	transition: all 500ms linear;
+}
+
+#sidebar.active {
+	left: 0px;
+	width: 14.6%;
+}
+
+#navbar2.active {
+	margin-left: 14.6%;
+}
+
+#sidebar ul li {
+	color: rgba(230, 230, 230, .9);
+	list-style: none;
+	padding: 15px 10px;
+	width: 100%;
+	border-bottom: 1px solid rgba(100, 100, 100, .3);
+	text-align: center;
+}
+
+.logo {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+}
+
+#navbar2 .toggle-btn {
+	position: absolute;
+	left: 10px;
+	top: -1px;
+	cursor: pointer;
+}
+
+#navbar2 .toggle-btn span {
+	display: block;
+	width: 165%;
+	color: white;
+	text-align: center;
+	font-size: 30px;
+	border: 3px solid white;
+	transition: 0.3s;
+}
+
+#navbar2 .toggle-btn span:hover {
+	display: block;
+	width: 165%;
+	color: dodgerblue;
+	text-align: center;
+	font-size: 30px;
+	border: 3px solid dodgerblue;
+	box-shadow: 0 0 8px 0 dodgerblue;
+	transition: 0.3s;
+}
+
+#div_prueba{
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background-image: url('../Images/tenor.gif');
+  	background-size: cover;
+  	background-position: center;
+}
