@@ -1,6 +1,6 @@
 <?php 
     include '../db/conexion.php';
-
+    #hol
     $userf=$_POST["user"];
     $passf=$_POST["pass"];	
 	$result = pg_query("select * from profesores where usuario='".$userf."' union select * from estudiantes where usuario='".$userf."'");
