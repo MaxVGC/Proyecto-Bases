@@ -58,7 +58,7 @@
                             <center><span>Cambiar contraseña</span></center>
                         </div>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="index.php">Cerrar sesión</a>
+                        <a class="dropdown-item" href="index.php" style="text-align: center">Cerrar sesión</a>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
 
 
     <div style="width:100%;height:92.5%;">
-        <div id="div_notas" style="position: absolute;">
+        <div id="div_notas" style="position: absolute;overflow-y: hidden">
             <img src="Images/image.jpg" id="img_tp">
         </div>
 
@@ -88,7 +88,7 @@
                         style="width:50%">
                 </div>
                 <input type="button" name="" value="Buscar" id="boton1" onclick="funcion();">
-                
+
             </form>
         </div>
     </div>

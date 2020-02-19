@@ -148,7 +148,6 @@ body {
 	background-size: cover;
 	background-position: center;
 	transition: all 500ms linear;
-	overflow-y: scroll
 }
 
 #div_pass.active {
