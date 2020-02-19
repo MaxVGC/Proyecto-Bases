@@ -1,34 +1,33 @@
-<?
+<?php
         $mensaje=$_GET["mensaje"];
         echo '<script language="javascript">';
         echo 'alert("Bienvenido "+"'.$mensaje.'");';  
-		echo '</script>';
+        echo '</script>';
+        include 'PHP/notas_estudiante.php';
 ?>
 <html>
 
 <head>
     <title>InicioE</title>
-    <link rel="stylesheet" type="text/css" href="Css/main_leaf.css" media="screen" />
     <link rel="icon" type="image/png" href="Images/logo1.png" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="Css/main_leaf.css" media="screen" />
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></script>
+    <link href="Css/bootstrap.css" rel="stylesheet" />
+    <link href="Css/bootstrap-theme.css" rel="stylesheet" />
+    <script src="Js/jquery-3.4.1.min.js"></script>
+    <script src="Js/bootstrap.min.js"></script>
 </head>
 
 <body>
+    
     <div class="container" style="width: 100%;"></div>
     <div id="sidebar">
         <ul>
             <li>
                 <img src="Images/logo1.png" alt="Logo Fazt" class="logo">
             </li>
-            <li>Home</li>
-            <li>About</li>
+            <li>Inicio</li>
+            <li>Notas</li>
             <li>Contact</li>
         </ul>
     </div>
@@ -45,9 +44,17 @@
             </div>
         </nav>
     </div>
-    
-    <div  id="div_prueba">
-        
+
+    <div id="div_notas">
+
+        <div id="div_notas_container">
+
+            <?php
+                $notas=div_notas($mensaje,'1');
+            ?>
+
+        </div>
+
     </div>
     <script src="Js/main_js.js"></script>
     </div>

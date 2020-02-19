@@ -5,14 +5,10 @@
 	<title>SONU-Sistema Organizado de Notas Universitario</title>
 	<link rel="stylesheet" type="text/css" href="Css/Index_leaf.css" media="screen" />
 	<link rel="icon" type="image/png" href="Images/logo1.png" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
-
-	<script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js" crossorigin></script>
-	<script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></script>
+	<link href="Css/bootstrap.css" rel="stylesheet" />
+    <link href="Css/bootstrap-theme.css" rel="stylesheet" />
+    <script src="Js/jquery-3.4.1.min.js"></script>
+    <script src="Js/bootstrap.min.js"></script>
 
 </head>
 

@@ -1,4 +1,4 @@
-<?
+<?php
         $mensaje=$_GET["mensaje"];
         echo '<script language="javascript">';
         echo 'alert("Bienvenido "+"'.$mensaje.'");';  
@@ -7,16 +7,13 @@
 <html>
 <head>
     <title>InicioP</title>
-    <link rel="stylesheet" type="text/css" href="Css/Main_leaf.css" media="screen" />
     <link rel="icon" type="image/png" href="Images/logo1.png" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="Css/main_leaf.css" media="screen" />
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></script>
+    <link href="Css/bootstrap.css" rel="stylesheet" />
+    <link href="Css/bootstrap-theme.css" rel="stylesheet" />
+    <script src="Js/jquery-3.4.1.min.js"></script>
+    <script src="Js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -45,7 +42,7 @@
         </nav>
     </div>
     <script src="Js/Main_js.js"></script>
-    <div class="col" id="div_prueba">
+    <div id="div_prueba">
 
     </div>
     </div>
