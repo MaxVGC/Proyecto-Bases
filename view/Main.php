@@ -8,11 +8,11 @@
     if(!empty($userf) && !empty($passf)){
     if($userf==$arr[3] && $passf==$arr[4]){
 		if($arr[5]==1){
-			$mensaje = $userf;
-			header("Location: Estudiante.php?mensaje=$mensaje");
+			$mensaje = base64_encode($userf);
+			header("Location: Estudiante.php?user=$mensaje");
 		}else{
-			$mensaje = $userf;
-			header("Location: Profesor.php?mensaje=$mensaje");
+			$mensaje = base64_encode($userf);
+			header("Location: Profesor.php?user=$mensaje");
 		}
     }else{
         echo '<script language="javascript">';

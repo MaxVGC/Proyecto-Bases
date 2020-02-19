@@ -129,19 +129,10 @@
 	width: 90%;
 } 
 
-#div_curso{
+#button_accordion{
 	font-family: f1;
-	color: white;
-	background-color: black;
 }
-
-#div_curso.Bases.de.datos{
-	position: relative;
-    margin: 0 0 3% 0;
-}
-
-#div_curso.matematicas{
-	position: relative;
-    margin: 0 0 3% 0;
+#table_skin{
+	font-family: f1;
 }
 

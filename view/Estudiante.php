@@ -1,5 +1,6 @@
 <?php
-        $mensaje=$_GET["mensaje"];
+        $recibed=$_GET["user"];
+        $mensaje = base64_decode($recibed);
         echo '<script language="javascript">';
         echo 'alert("Bienvenido "+"'.$mensaje.'");';  
         echo '</script>';
@@ -50,7 +51,7 @@
         <div id="div_notas_container">
 
             <?php
-                $notas=div_notas($mensaje,'1');
+                $notas=div_notas($mensaje);
             ?>
 
         </div>

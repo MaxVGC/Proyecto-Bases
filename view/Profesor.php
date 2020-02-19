@@ -1,5 +1,6 @@
 <?php
-        $mensaje=$_GET["mensaje"];
+        $recibed=$_GET["user"];
+        $mensaje = base64_decode($recibed);
         echo '<script language="javascript">';
         echo 'alert("Bienvenido "+"'.$mensaje.'");';  
 		echo '</script>';

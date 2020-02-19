@@ -1,35 +1,40 @@
 <?php
     function get_nota($userf,$curso) {
         include '../db/conexion.php';
+        $color='color:green';
         $result = pg_query("select cursos.nombre,notas.corte_1,notas.corte_2,notas.corte_3 from notas,estudiantes,cursos where estudiantes.codigo=notas.cod_est and notas.cod_cur=cursos.id and estudiantes.usuario='".$userf."' and cursos.nombre='".$curso."'");
-        
         $arr = pg_fetch_array($result, 0);
+        if(nota_final($arr[1],$arr[2],$arr[3])<3){
+            $color='color:red';
+        }
         echo '
-        <div class="accordion" id="accordionExample">
+        <div class="accordion" id="accordion_'.str_replace(' ','',$curso).'">
             <div class="card">
-            <div class="card-header" id="headingOne">
+            <div class="card-header" id="headingOne" style="background: black;">
             <h2 class="mb-0">
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse'.str_replace(' ','',$curso).'" aria-expanded="false" aria-controls="collapse'.str_replace(' ','',$curso).'">
+            <button id="button_accordion" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_'.str_replace(' ','',$curso).'" aria-expanded="false" aria-controls="collapse_'.str_replace(' ','',$curso).'">
                 '.$curso.'
             </button>
             </h2>
             </div>
       
-            <div id="collapse'.str_replace(' ','',$curso).'" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div id="collapse_'.str_replace(' ','',$curso).'" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_'.str_replace(' ','',$curso).'">
             <div class="card-body">
-            <table class="table">
+            <table class="table" style="background: black;color: white;" id="table_skin">
             <thead>
               <tr>
-                <th scope="col">Corte 1</th>
-                <th scope="col">Corte 2</th>
-                <th scope="col">Corte 3</th>
+                <th scope="col"><center>Corte 1</center></th>
+                <th scope="col"><center>Corte 2</center></th>
+                <th scope="col"><center>Corte 3</center></th>
+                <th scope="col"><center>Nota final</center></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>'.$arr[1].'</td>
-                <td>'.$arr[2].'</td>
-                <td>'.$arr[3].'</td>
+                <td><center>'.$arr[1].'</center></td>
+                <td><center>'.$arr[2].'</center></td>
+                <td><center>'.$arr[3].'</center></td>
+                <td style="'.$color.';"><center>'.nota_final($arr[1],$arr[2],$arr[3]).'</center></td>
               </tr>
             </tbody>
           </table>
@@ -37,6 +42,7 @@
             </div>
             </div>
         </div>
+        <br>
         ';
         return '';
     }
@@ -44,13 +50,23 @@
     function div_notas($userf){
         include '../db/conexion.php';
         $result = pg_query("select cursos.nombre from notas,estudiantes,cursos where notas.cod_est=estudiantes.codigo and notas.cod_cur=cursos.id and estudiantes.usuario='".$userf."'");
-        $arr = pg_fetch_all_columns($result, 0);
+        $result2 = pg_query("select nombre from cursos");
 
-        if($arr[0]='Bases de datos'){
-            $s=get_nota($userf,$arr[0]);
+        $arr = pg_fetch_all_columns($result, 0);
+        $arr2 = pg_fetch_all_columns($result2, 0);
+
+        for($x=0; $x<sizeof($arr); $x++){
+            for($y=0; $y<sizeof($arr2); $y++){
+                if($arr[$x]==$arr2[$y]){
+                    $s=get_nota($userf,$arr[$y]);
+                }
+            }
         }
-        if($arr[1]='Matematicas'){
-            $s=get_nota($userf,$arr[1]);
-        }
+
+    }
+
+    function nota_final($a,$b,$c){
+        $result=($a*0.3)+($b*0.3)+($c*0.4);
+        return $result;
     }
 ?>
