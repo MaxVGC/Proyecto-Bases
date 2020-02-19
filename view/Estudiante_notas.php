@@ -52,7 +52,9 @@
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <div class="dropdown-menu" style="left:-73%;top:120%">
-                        <a class="dropdown-item" href="#">Cambiar contraseña</a>
+                        <div class="toggle-div-pass">
+                            <center><span>Cambiar contraseña</span></center>
+                        </div>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="index.php">Cerrar sesión</a>
                     </div>
@@ -71,6 +73,25 @@
 
         </div>
 
+    </div>
+    <div id="div_pass" style="position: absolute;">
+        <form name="login" class="" method="post" autocomplete="off">
+            <div class="form-group">
+                <label for="formGroupExampleInput">Contraseña actual</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" style="width:50%">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Nueva contraseña</label>
+                <input type="text" name="pass" class="form-control" id="formGroupExampleInput2" placeholder=""
+                    style="width:50%">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Repetir nueva contraseña</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="" style="width:50%">
+            </div>
+            <input type="button" name="" value="Buscar" id="boton1" onclick="funcion();">
+
+        </form>
     </div>
     <script src="Js/main_js.js"></script>
     </div>

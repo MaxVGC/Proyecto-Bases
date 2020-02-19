@@ -73,4 +73,10 @@
         $result=($a*0.3)+($b*0.3)+($c*0.4);
         return $result;
     }
+
+    function cambiar_pass($userf,$pass){
+        include '../db/conexion.php';
+        $result = pg_query("select cursos.nombre from notas,estudiantes,cursos where notas.cod_est=estudiantes.codigo and notas.cod_cur=cursos.id and estudiantes.usuario='".$userf."'");
+
+    }
 ?>
