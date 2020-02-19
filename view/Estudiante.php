@@ -45,10 +45,11 @@
             </div>
         </nav>
     </div>
-    <script src="Js/Main_js.js"></script>
-    <div class="col" id="div_prueba">
-
+    
+    <div  id="div_prueba">
+        
     </div>
+    <script src="Js/Main_js.js"></script>
     </div>
 </body>
 

@@ -111,3 +111,15 @@
   	background-size: cover;
   	background-position: center;
 }
+
+#div_prueba.active{
+	width: 85.4%;
+	height: 100%;
+	margin-left: 14.6%;
+	z-index: -1;
+	background-image: url('../Images/tenor.gif');
+  	background-size: cover;
+  	background-position: center;
+}
+
+

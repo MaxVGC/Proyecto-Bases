@@ -7,4 +7,6 @@ btnToggle.addEventListener('click', function () {
   console.log(document.getElementById('sidebar'))
   document.getElementById('navbar2').classList.toggle('active');
   console.log(document.getElementById('sidebar'))
+  document.getElementById('div_prueba').classList.toggle('active');
+  console.log(document.getElementById('sidebar'))
 });
