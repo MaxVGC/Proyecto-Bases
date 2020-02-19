@@ -136,7 +136,9 @@
 
 #F2 {
 	font-family: f1;
-	display: block;
+    display: block;
+    margin-top: 216%;
+    font-size: 10px;
 }
 
 #table_skin {
