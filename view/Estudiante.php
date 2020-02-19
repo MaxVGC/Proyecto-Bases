@@ -11,10 +11,11 @@
     <title>InicioE</title>
     <link rel="icon" type="image/png" href="Images/logo1.png" />
     <link rel="stylesheet" type="text/css" href="Css/main_leaf.css" media="screen" />
-    <meta http-equiv="Expires" content="0">
-    <meta http-equiv="Last-Modified" content="0">
-    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
-    <meta http-equiv="Pragma" content="no-cache">
+    <<meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
     <link href="Css/bootstrap.css" rel="stylesheet" />
     <link href="Css/bootstrap-theme.css" rel="stylesheet" />
     <script src="Js/jquery-3.4.1.min.js"></script>
