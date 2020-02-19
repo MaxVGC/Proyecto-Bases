@@ -61,7 +61,7 @@
     </div>
 
     <div id="div_notas">
-
+    <img src="Images/image.jpg" id="img_tp">
 
     </div>
     <script src="Js/main_js.js"></script>
