@@ -2,7 +2,7 @@
     function get_nota($userf,$curso) {
         include '../db/conexion.php';
         $color='color:green';
-        $result = pg_query("select cursos.nombre,notas.corte_1,notas.corte_2,notas.corte_3 from notas,estudiantes,cursos where estudiantes.codigo=notas.cod_est and notas.cod_cur=cursos.id and estudiantes.usuario='".$userf."' and cursos.nombre='".$curso."'");
+        $result = pg_query("select cursos.nombre,notas.corte_1,notas.corte_2,notas.corte_3,profesores.nombre,profesores.apellido from notas,estudiantes,cursos,profesores where estudiantes.codigo=notas.cod_est and cursos.cod_prof=profesores.codigo and notas.cod_cur=cursos.id and estudiantes.usuario='".$userf."' and cursos.nombre='".$curso."'");
         $arr = pg_fetch_array($result, 0);
         if(nota_final($arr[1],$arr[2],$arr[3])<3){
             $color='color:red';
@@ -11,11 +11,12 @@
         <div class="accordion" id="accordion_'.str_replace(' ','',$curso).'">
             <div class="card">
             <div class="card-header" id="headingOne" style="background: black;">
-            <h2 class="mb-0">
+            <h2 class="mb-0" style="color:white; font-size:1rem">
             <button id="button_accordion" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_'.str_replace(' ','',$curso).'" aria-expanded="false" aria-controls="collapse_'.str_replace(' ','',$curso).'">
                 '.$curso.'
             </button>
             </h2>
+           
             </div>
       
             <div id="collapse_'.str_replace(' ','',$curso).'" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_'.str_replace(' ','',$curso).'">
@@ -37,7 +38,10 @@
                 <td style="'.$color.';"><center>'.nota_final($arr[1],$arr[2],$arr[3]).'</center></td>
               </tr>
             </tbody>
-          </table>
+            </table>
+            </div>
+            <div class="card-footer" id="button_accordion" style="background: black;color: dodgerblue;">
+            Profesor: <p id="button_accordion" style="margin-bottom:0;color:white" >'.$arr[4].' '.$arr[5].'</p>
             </div>
             </div>
             </div>

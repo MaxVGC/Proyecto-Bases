@@ -121,18 +121,39 @@
 	background-size: cover;
 	background-position: center;
 	transition: all 500ms linear;
-} 
+}
 
 #div_notas_container {
 	padding-top: 3%;
 	margin: 0 auto;
 	width: 90%;
-} 
-
-#button_accordion{
-	font-family: f1;
-}
-#table_skin{
-	font-family: f1;
 }
 
+#button_accordion {
+	font-family: f1;
+	color: dodgerblue;
+}
+
+#F2 {
+	font-family: f1;
+	display: block;
+}
+
+#table_skin {
+	font-family: f1;
+}
+
+#links_estudiante{
+	color: white;
+	transition: 0.5s;
+}
+
+#links_estudiante:hover{
+	color: dodgerblue;
+	transition: 0.5s;
+}
+
+#btn_user{
+	background: black;
+    border: 0;
+}

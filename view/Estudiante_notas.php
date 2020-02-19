@@ -2,8 +2,8 @@
         $recibed=$_GET["user"];
         $mensaje = base64_decode($recibed);
         echo '<script language="javascript">';
-        echo 'alert("Bienvenido "+"'.$mensaje.'");';  
         echo '</script>';
+        include 'PHP/funciones_estudiante.php';
 ?>
 <html>
 
@@ -30,10 +30,10 @@
             <li><a id="links_estudiante" href="Estudiante_notas.php?user=<?php echo $recibed; ?>">Notas</a></li>
         </ul>
         <div class="site-footer">
-		<label id="F2" style="color:dodgerblue">
-			<center>©2020 Todos los derechos reservados Grupo AOH</center>
-		</label>
-	</div>
+            <label id="F2" style="color:dodgerblue">
+                <center>©2020 Todos los derechos reservados Grupo AOH</center>
+            </label>
+        </div>
     </div>
     <div id="navbar2">
         <nav class="navbar navbar-expand navbar-dark" style="background-color:black;padding-bottom: 0.4%;">
@@ -47,7 +47,8 @@
                 <div class="btn-group">
                     <button type="button" class="btn btn-danger" id="btn_user"><?php echo $mensaje; ?></button>
                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background:dodgerblue;border:0">
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        style="background:dodgerblue;border:0">
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <div class="dropdown-menu" style="left:-73%;top:120%">
@@ -62,6 +63,13 @@
 
     <div id="div_notas">
 
+        <div id="div_notas_container">
+
+            <?php
+                $notas=div_notas($mensaje);
+            ?>
+
+        </div>
 
     </div>
     <script src="Js/main_js.js"></script>
