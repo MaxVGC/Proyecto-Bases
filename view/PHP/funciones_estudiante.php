@@ -2,11 +2,13 @@
     function get_nota($userf,$curso) {
         include '../db/conexion.php';
         $color='color:green';
-        $result = pg_query("select notas.n_corte,notas.nota,docentes.nom_doc,docentes.ape_doc from estudiantes,cursos,notas,docentes where estudiantes.cod_est=notas.cod_est and notas.cod_cur=cursos.cod_cur and cursos.cod_doc=docentes.cod_doc and estudiantes.usu_est='".$userf."' and cursos.nom_cur='".$curso."'
-        ");
+        $result = pg_query("select notas.n_corte,notas.nota,docentes.nom_doc,docentes.ape_doc from estudiantes,cursos,notas,docentes where estudiantes.cod_est=notas.cod_est and notas.cod_cur=cursos.cod_cur and cursos.cod_doc=docentes.cod_doc and estudiantes.usu_est='".$userf."' and cursos.nom_cur='".$curso."'");
         $cortes = pg_fetch_all_columns($result, 0);
         $notas = pg_fetch_all_columns($result, 1);
         $nombres = pg_fetch_row($result, 0);
+        if(nota_final($notas,$curso)<3){
+            $color='color:red';
+        }
         echo '
         <div class="accordion" id="accordion_'.str_replace(' ','',$curso).'">
             <div class="card">
@@ -24,7 +26,7 @@
             <table class="table" style="background: black;color: white;" id="table_skin">
             <thead>
               <tr>
-                ';for_cortes($cortes);echo'
+                ';for_cortes($cortes,$curso);echo'
                 <th scope="col"><center>Nota final</center></th>
               </tr>
             </thead>
@@ -82,9 +84,11 @@
         }
     }
 
-    function for_cortes($cortes){
+    function for_cortes($cortes,$curso){
+        $porcentajes = pg_query("select cortes.porcentaje from cursos,cortes where cursos.cod_cur=cortes.cod_cur and cursos.nom_cur='".$curso."'");
+        $porcentajes_arr = pg_fetch_all_columns($porcentajes, 0);
         for($y=0; $y<sizeof($cortes); $y++){
-            echo '<th scope="col"><center>Corte '.$cortes[$y].'</center></th>';
+            echo '<th scope="col"><center>Corte '.$cortes[$y].' ('.$porcentajes_arr[$y].'%)</center></th>';
         }
     }
 ?>

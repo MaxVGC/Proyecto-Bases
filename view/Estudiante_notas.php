@@ -79,21 +79,20 @@
 
     </div>
     <div id="div_pass" style="position: absolute;">
-        <form name="login" class="" method="post" autocomplete="off">
+        <form name="login" class="" method="post" autocomplete="off" action="PHP/cambiar_contraseña.php?user=<?php echo $mensaje ?>">
             <div class="form-group">
                 <label for="formGroupExampleInput">Contraseña actual</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" style="width:50%">
+                <input type="password" min="8" name="pass_actual" class="form-control" id="formGroupExampleInput" placeholder="" style="width:50%" required>
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput2">Nueva contraseña</label>
-                <input type="text" name="pass" class="form-control" id="formGroupExampleInput2" placeholder=""
-                    style="width:50%">
+                <input type="password" min="8" name="pass_nueva" class="form-control" id="formGroupExampleInput2" placeholder="" style="width:50%" required>
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput2">Repetir nueva contraseña</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="" style="width:50%">
+                <input type="password" min="8" name="pass_nueva2" class="form-control" id="formGroupExampleInput2" placeholder="" style="width:50%" required>
             </div>
-            <input type="button" name="" value="Buscar" id="boton1" onclick="funcion();">
+            <input type="submit" name="" value="Buscar" id="boton1" onclick="funcion();">
 
         </form>
     </div>
