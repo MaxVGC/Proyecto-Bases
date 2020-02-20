@@ -258,3 +258,21 @@ label {
 	font-family: f1;
 	display: block;
 }
+
+::-webkit-scrollbar{
+    width: 15px;
+    background-color: transparent;
+}
+::-webkit-scrollbar-track{
+    border-radius: 10px;
+    background-color:transparent;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+	background-color: black;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    border-radius: 10px;
+	background-color: dodgerblue;
+}

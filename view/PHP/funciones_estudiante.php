@@ -22,7 +22,7 @@
             </div>
       
             <div id="collapse_'.str_replace(' ','',$curso).'" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_'.str_replace(' ','',$curso).'">
-            <div class="card-body">
+            <div class="card-body" style="overflow-x: scroll;">
             <table class="table" style="background: black;color: white;" id="table_skin">
             <thead>
               <tr>
