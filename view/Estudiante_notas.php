@@ -92,7 +92,7 @@
                 <label for="formGroupExampleInput2">Repetir nueva contraseña</label>
                 <input type="password" min="8" name="pass_nueva2" class="form-control" id="formGroupExampleInput2" placeholder="" style="width:50%" required>
             </div>
-            <input type="submit" name="" value="Buscar" id="boton1" onclick="funcion();">
+            <input type="submit" name="" value="Cambiar contraseña" id="boton1" onclick="funcion();">
 
         </form>
     </div>
