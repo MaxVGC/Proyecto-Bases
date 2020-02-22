@@ -123,7 +123,6 @@
             echo'
                 <script type="text/javascript" >
                     function alerta_'.str_replace(' ','',$nom_cur_arr[$y]).'(){
-                        var closable = alertify.alert().setting("closable");
                         var pass = prompt("Ingrese contraseña del curso para inscribirse");
                         if(pass=="'.$pass_arr[$y].'"){
                             var condition = confirm("¿Estas seguro de inscribirte a '.$nom_cur_arr[$y].'? una vez hecho ya no podras retirarte del curso solo el profesor podra hacerlo");
