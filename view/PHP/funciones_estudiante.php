@@ -93,4 +93,61 @@
             echo '<th scope="col"><center>Corte '.$cortes[$y].' ('.$porcentajes_arr[$y].'%)</center></th>';
         }
     }
+
+    function consultar_cursos($userf){
+        include '../db/conexion.php';
+        $cursos = pg_query("select cursos.cod_cur,cursos.nom_cur,cursos.creditos,docentes.nom_doc,docentes.ape_doc,cursos.pass_cur from cursos,docentes where cursos.cod_doc=docentes.cod_doc and cursos.cod_cur not in (select cursos_estudiantes.cod_cur from cursos_estudiantes, estudiantes where cursos_estudiantes.cod_est=estudiantes.cod_est and estudiantes.usu_est='".$userf."')");
+        $cod_cur_arr = pg_fetch_all_columns($cursos, 0);
+        $nom_cur_arr = pg_fetch_all_columns($cursos, 1);
+        $creditos_arr = pg_fetch_all_columns($cursos, 2);
+        $nombre_arr = pg_fetch_all_columns($cursos, 3);
+        $apellido_arr = pg_fetch_all_columns($cursos, 4);
+        $pass_arr = pg_fetch_all_columns($cursos, 5);
+        for($y=0; $y<sizeof($cod_cur_arr); $y++){
+        echo '
+        <div class="accordion" id="accordion_'.str_replace(' ','',$nom_cur_arr[$y]).'">
+            <div class="card">
+            <div class="card-header" id="headingOne" style="background: black;">
+            <h2 class="mb-0" style="color:white; font-size:1rem">
+            <button id="button_accordion" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_'.str_replace(' ','',$nom_cur_arr[$y]).'" aria-expanded="false" aria-controls="collapse_'.str_replace(' ','',$nom_cur_arr[$y]).'">
+                '.$nom_cur_arr[$y].'
+            </button>
+            </h2>
+           
+            </div>
+      
+            <div id="collapse_'.str_replace(' ','',$nom_cur_arr[$y]).'" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_'.str_replace(' ','',$nom_cur_arr[$y]).'">
+            <div class="card-body" style="overflow-x: scroll;">
+            <label style="margin-top: 4%">Creditos: '.$creditos_arr[$y].'</label>
+            <button type="button" class="btn btn-primary" style="margin-left: 75%;" onclick="alerta_'.str_replace(' ','',$nom_cur_arr[$y]).'()">Registrarse</button>';
+            echo'
+                <script type="text/javascript" >
+                    function alerta_'.str_replace(' ','',$nom_cur_arr[$y]).'(){
+                        var closable = alertify.alert().setting("closable");
+                        var pass = prompt("Ingrese contraseña del curso para inscribirse");
+                        if(pass=="'.$pass_arr[$y].'"){
+                            var condition = confirm("¿Estas seguro de inscribirte a '.$nom_cur_arr[$y].'? una vez hecho ya no podras retirarte del curso solo el profesor podra hacerlo");
+                            if(condition){
+                                alert("Te has inscrito correctamente");
+                                window.location="../view/PHP/inscribir_materia.php?user='.$userf.'&cur='.$cod_cur_arr[$y].'";
+                            }
+                        }else if(pass=="" || pass==null){
+                            alert("Por favor ingresar contraseña");
+                        }else{
+                            alert("Contraseña invalida");
+                        }
+                    }
+	            </script>
+            ';
+            echo'</div>
+            <div class="card-footer" id="button_accordion" style="background: black;color: dodgerblue;">
+            Profesor: <p id="button_accordion" style="margin-bottom:0;color:white" >'.$nombre_arr[$y].' '.$apellido_arr[$y].'</p>
+            </div>
+            </div>
+            </div>
+        </div>
+        <br>
+        ';
+        }
+    }
 ?>

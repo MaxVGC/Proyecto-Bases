@@ -31,6 +31,8 @@
             </li>
             <li><a id="links_estudiante" href="Estudiante.php?user=<?php echo $recibed; ?>">Inicio</a></li>
             <li><a id="links_estudiante" href="Estudiante_notas.php?user=<?php echo $recibed; ?>">Notas</a></li>
+            <li><a id="links_estudiante" href="Inscribirse.php?user=<?php echo $recibed; ?>">Inscribirse</a></li>
+
         </ul>
         <div class="site-footer">
             <label id="F2" style="color:dodgerblue">

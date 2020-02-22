@@ -33,7 +33,7 @@
                         <center><label class="form-label" id="F2">Usuario</label></center>
                         <div class="input-group-prepend">
                             <img src="Images/Icon_User.png" id="icon_user">
-                            <input placeholder="Ingrese usuario" name="user" type="text" class="form-control">
+                            <input placeholder="Ingrese usuario" name="user" type="text" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -41,7 +41,7 @@
                         <div class="input-group-prepend">
                             <img src="Images/Icon_Pass.png" id="icon_user">
                             <input placeholder="Contraseña" name="pass" type="password" id="formBasicPassword"
-                                class="form-control">
+                                class="form-control" required>
                         </div>
                     </div>
                     <center><input type="submit" id="btn_login" name="btn_login" value="Ingresar"></center>
