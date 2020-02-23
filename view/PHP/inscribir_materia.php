@@ -17,5 +17,5 @@
         $aux=$y+1;
         $query=pg_query("insert into notas values(".$aux.",".$cod_arr[0].",".$cur.",0)");
     }
-    header("Location: ../inscribirse.php?user=$mensaje");
+    header("Location: ../Estudiante_inscribirse.php?user=$mensaje");
 ?>

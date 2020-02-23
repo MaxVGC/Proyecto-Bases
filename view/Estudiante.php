@@ -31,8 +31,7 @@
             </li>
             <li><a id="links_estudiante" href="Estudiante.php?user=<?php echo $recibed; ?>">Inicio</a></li>
             <li><a id="links_estudiante" href="Estudiante_notas.php?user=<?php echo $recibed; ?>">Notas</a></li>
-            <li><a id="links_estudiante" href="Inscribirse.php?user=<?php echo $recibed; ?>">Inscribirse</a></li>
-
+            <li><a id="links_estudiante" href="Estudiante_inscribirse.php?user=<?php echo $recibed; ?>">Inscribirse</a></li>
         </ul>
         <div class="site-footer">
             <label id="F2" style="color:dodgerblue">
@@ -78,16 +77,16 @@
         <form name="login" class="" method="post" autocomplete="off" action="PHP/cambiar_contraseña.php?user=<?php echo $mensaje ?>">
                 <div class="form-group">
                     <label for="formGroupExampleInput">Contraseña actual</label>
-                    <input type="password" class="form-control" id="formGroupExampleInput" placeholder="" style="width:50%">
+                    <input type="password"  name="pass_actual" class="form-control" id="formGroupExampleInput" placeholder="" style="width:50%">
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Nueva contraseña</label>
-                    <input type="password" name="pass" class="form-control" id="formGroupExampleInput2" placeholder=""
+                    <input type="password" name="pass_nueva" class="form-control" id="formGroupExampleInput2" placeholder=""
                         style="width:50%">
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Repetir nueva contraseña</label>
-                    <input type="password" class="form-control" id="formGroupExampleInput2" placeholder=""
+                    <input type="password" name="pass_nueva2" class="form-control" id="formGroupExampleInput2" placeholder=""
                         style="width:50%">
                 </div>
                 <input type="submit" name="" value="Buscar" id="boton1" onclick="funcion();">

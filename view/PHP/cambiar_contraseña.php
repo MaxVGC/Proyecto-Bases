@@ -4,29 +4,49 @@
     $pass1=$_POST["pass_actual"];
     $pass2=$_POST["pass_nueva"];	
     $pass3=$_POST["pass_nueva2"];
-    
-    $result=pg_query("select pass_est from estudiantes where usu_est='".$user."'");
+    $result = pg_query("select cod_doc,pass_doc from docentes where usu_doc='".$user."' union select cod_est,pass_est from estudiantes where usu_est='".$user."'");
     $arr = pg_fetch_array($result, 0);
-    if($arr[0]==$pass1){
-        if($pass2==$pass3){
-            $success=pg_query("UPDATE estudiantes SET pass_est = '".$pass2."' WHERE usu_est = '".$user."'");
-            echo '<script language="javascript">';
-            echo 'alert("La contraseña ha sido cambiada satisfactoriamente");';
-            echo "window.history.back(-1);";
-            echo '</script>';
+    if(substr($arr[0], 0, 2)==16){
+        if($arr[1]==$pass1){
+            if($pass2==$pass3){
+                $success=pg_query("UPDATE estudiantes SET pass_est = '".$pass2."' WHERE usu_est = '".$user."'");
+                echo '<script language="javascript">';
+                echo 'alert("La contraseña ha sido cambiada satisfactoriamente");';
+                echo "window.history.back(-1);";
+                echo '</script>';
+            }else{
+                echo '<script language="javascript">';
+                echo 'alert("La contraseñas no coinciden, Por favor intentalo nuevamente");';
+                echo "window.history.back(-1);";
+                echo '</script>';
+            }
         }else{
             echo '<script language="javascript">';
-            echo 'alert("La contraseñas no coinciden, Por favor intentalo nuevamente");';
+            echo 'alert("La contraseña ingresada no es valida, Por favor intentalo nuevamente");';
             echo "window.history.back(-1);";
             echo '</script>';
         }
     }else{
-        echo '<script language="javascript">';
-        echo 'alert("La contraseña ingresada no es valida, Por favor intentalo nuevamente");';
-        echo "window.history.back(-1);";
-        echo '</script>';
+        if($arr[1]==$pass1){
+            if($pass2==$pass3){
+                $success=pg_query("UPDATE docentes SET pass_doc = '".$pass2."' WHERE usu_doc = '".$user."'");
+                echo '<script language="javascript">';
+                echo 'alert("La contraseña ha sido cambiada satisfactoriamente");';
+                echo "window.history.back(-1);";
+                echo '</script>';
+            }else{
+                echo '<script language="javascript">';
+                echo 'alert("La contraseñas no coinciden, Por favor intentalo nuevamente");';
+                echo "window.history.back(-1);";
+                echo '</script>';
+            }
+        }else{
+            echo '<script language="javascript">';
+            echo 'alert("La contraseña ingresada no es valida, Por favor intentalo nuevamente");';
+            echo "window.history.back(-1);";
+            echo '</script>';
+        }
     }
-    
     
     
     
