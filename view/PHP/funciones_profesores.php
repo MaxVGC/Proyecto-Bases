@@ -111,6 +111,14 @@
                         
             </script>
             ';echo '
+            <button type="button" class="btn btn-primary" style="margin-bottom:1.5%" onclick="alerta5_'.str_replace(' ','',$curso).'()">Modificar cortes</button>
+            ';echo'
+            <script type="text/javascript" >
+                function alerta5_'.str_replace(' ','',$curso).'(){
+                        window.location="PHP/modificar_corte.php?user='.$userf.'&cur='.$cod_cur_arr[0].'";
+                }
+            </script>
+            ';echo '
             </div>
             <div class="card-footer" id="button_accordion" style="background: black;color: dodgerblue;">
             Profesor: <p id="button_accordion" style="margin-bottom:0;color:white" >hola</p>
