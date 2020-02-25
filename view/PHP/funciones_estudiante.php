@@ -71,7 +71,7 @@
 
     function nota_final($nota,$curso){
         include '../db/conexion.php';
-        $result = pg_query("select cortes.porcentaje from cursos,cortes where cursos.cod_cur=cortes.cod_cur and cursos.nom_cur='".$curso."'");
+        $result = pg_query("select cortes.porcentaje from cursos,cortes where cursos.cod_cur=cortes.cod_cur and cursos.nom_cur='".$curso."' order by cortes.n_corte asc");
         $porcentajes = pg_fetch_all_columns($result, 0);
         $notaf=0;
         for($y=0; $y<sizeof($porcentajes); $y++){
@@ -87,7 +87,7 @@
     }
 
     function for_cortes($cortes,$curso){
-        $porcentajes = pg_query("select cortes.porcentaje from cursos,cortes where cursos.cod_cur=cortes.cod_cur and cursos.nom_cur='".$curso."'");
+        $porcentajes = pg_query("select cortes.porcentaje from cursos,cortes where cursos.cod_cur=cortes.cod_cur and cursos.nom_cur='".$curso."' order by cortes.n_corte asc");
         $porcentajes_arr = pg_fetch_all_columns($porcentajes, 0);
         for($y=0; $y<sizeof($cortes); $y++){
             echo '<th scope="col"><center>Corte '.$cortes[$y].' ('.$porcentajes_arr[$y].'%)</center></th>';
