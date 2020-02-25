@@ -3,6 +3,10 @@
         include '../db/conexion.php';
         $cod_cur = pg_query("select cod_cur from cursos where nom_cur='".$curso."'");
         $cod_cur_arr= pg_fetch_all_columns($cod_cur, 0);
+        $cortes= pg_query("select n_corte from cortes where cod_cur=".$cod_cur_arr[0]."");
+        $arr = pg_fetch_all_columns($cortes, 0);
+        $ncortes=sizeof($arr);
+
         
         echo '
         <div class="accordion" id="accordion_'.str_replace(' ','',$curso).'">
@@ -104,6 +108,7 @@
             </script>
             <button type="button" class="btn btn-primary" style="margin-bottom:1.5%" onclick="alerta3_'.str_replace(' ','',$curso).'()">Agregar corte</button>
             ';echo '
+
             <script type="text/javascript" >
                 function alerta3_'.str_replace(' ','',$curso).'(){
                           var condition = confirm("¿Estas seguro de agregar un nuevo corte?");
@@ -112,14 +117,30 @@
                               window.location="PHP/agregar_corte.php?cur='.$cod_cur_arr[0].'&user='.$userf.'";
                           }
                       }
-                        
             </script>
             ';echo '
             <button type="button" class="btn btn-primary" style="margin-bottom:1.5%" onclick="alerta5_'.str_replace(' ','',$curso).'()">Modificar cortes</button>
             ';echo'
             <script type="text/javascript" >
                 function alerta5_'.str_replace(' ','',$curso).'(){
-                        window.location="PHP/modificar_corte.php?user='.$userf.'&cur='.$cod_cur_arr[0].'";
+
+                  let suma=0;
+                  let cortes=""
+                  for(let i=0;i<'.$ncortes.';i++)
+                  {
+                    let curc= prompt("Ingresa porcentaje del corte " + (i+1));
+                    suma+=parseInt(curc);
+                    cortes+= `&c${(i+1)}=${curc}`
+                  }
+                  
+                  if(suma!=100)
+                  {
+                    alert("La suma de los cortes debe ser igual a 100");
+                  }
+                  else
+                  {
+                    window.location=`PHP/modificar_corte.php?user='.$userf.'&ncor='.$ncortes.'&cur='.$cod_cur_arr[0].'&suma=${suma}`+cortes;
+                  }
                 }
             </script>
             ';echo '
