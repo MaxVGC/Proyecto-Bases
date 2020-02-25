@@ -57,14 +57,18 @@
                         var cod_est = prompt("Ingrese codigo del estudiante",nud);
                         var corte = prompt("Ingrese corte de la nota a editar","");
                         var nota = prompt("Ingrese nota",0);
-                        if(cod_est!=null && cod_est!=""){
-                          var condition = confirm("¿Estas seguro de modificar la nota?");
-                          if(condition){
-                              alert("La nota ha sido modificada");
-                              window.location="PHP/modificar_nota.php?cod="+cod_est+"&cur='.$cod_cur_arr[0].'&user='.$userf.'&corte="+corte+"&nota="+nota+"";
+                        if(nota<=5 && nota>=0){
+                          if(cod_est!=null && cod_est!=""){
+                            var condition = confirm("¿Estas seguro de modificar la nota?");
+                            if(condition){
+                                alert("La nota ha sido modificada");
+                                window.location="PHP/modificar_nota.php?cod="+cod_est+"&cur='.$cod_cur_arr[0].'&user='.$userf.'&corte="+corte+"&nota="+nota+"";
+                            }
+                          }else{
+                            alert("No se ha podido modificar la nota");
                           }
                         }else{
-                          alert("No se ha podido eliminar al estudiante");
+                          alert("La nota debe estar entre 0 y 5");
                         }
                 }
             </script>
@@ -168,7 +172,7 @@
 
     function get_notas_est($cod_cur,$cod_est){
       include '../db/conexion.php';
-      $estudiantes = pg_query("select notas.n_corte,notas.nota from notas,estudiantes where notas.cod_est=estudiantes.cod_est and notas.cod_cur=".$cod_cur." and estudiantes.cod_est=".$cod_est."");
+      $estudiantes = pg_query("select notas.n_corte,notas.nota from notas,estudiantes where notas.cod_est=estudiantes.cod_est and notas.cod_cur=".$cod_cur." and estudiantes.cod_est=".$cod_est." order by notas.n_corte asc");
       $arr = pg_fetch_all_columns($estudiantes, 0);
       for($y=0; $y<sizeof($arr); $y++){
         $arr2 = pg_fetch_all_columns($estudiantes,1);
@@ -178,7 +182,7 @@
 
     function get_cortes_est($cod_cur){
       include '../db/conexion.php';
-      $cortes = pg_query("select n_corte,porcentaje from cortes where cod_cur=".$cod_cur."");
+      $cortes = pg_query("select n_corte,porcentaje from cortes where cod_cur=".$cod_cur." order by n_corte asc");
       $arr = pg_fetch_all_columns($cortes, 0);
       for($y=0; $y<sizeof($arr); $y++){
         $arr2 = pg_fetch_all_columns($cortes,0);
@@ -202,7 +206,7 @@
 
     function tabla_cortes($cod_cur){
       include '../db/conexion.php';
-      $cortes = pg_query("select n_corte,porcentaje from cortes where cod_cur=".$cod_cur."");
+      $cortes = pg_query("select n_corte,porcentaje from cortes where cod_cur=".$cod_cur." order by n_corte asc");
       $arr=pg_fetch_all_columns($cortes, 0);
       $arr2=pg_fetch_all_columns($cortes, 1);
       for($y=0; $y<sizeof($arr); $y++){
