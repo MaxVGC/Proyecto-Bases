@@ -214,7 +214,7 @@
 
     function notafinal($cod_cur,$cod_est){
       include '../db/conexion.php';
-      $notas = pg_query("select notas.nota from notas,estudiantes where notas.cod_est=estudiantes.cod_est and notas.cod_cur=".$cod_cur." and estudiantes.cod_est=".$cod_est."");
+      $notas = pg_query("select notas.nota from notas,estudiantes where notas.cod_est=estudiantes.cod_est and notas.cod_cur=".$cod_cur." and estudiantes.cod_est=".$cod_est." order by notas.n_corte asc");
       $cortes = pg_query("select porcentaje from cortes where cod_cur=".$cod_cur."");
       $arr = pg_fetch_all_columns($notas, 0);
       $arr2 = pg_fetch_all_columns($cortes, 0);
