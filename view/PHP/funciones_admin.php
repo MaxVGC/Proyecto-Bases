@@ -159,6 +159,47 @@
                     }
                 </script>                           
             ';
+        }else if($name=='cursos'){
+            echo'
+                <button type="button" class="btn btn-primary" style="margin-bottom:1.5%" onclick="alerta_'.str_replace(' ','',$name).'()">Insertar curso</button>
+                ';echo'
+                <script type="text/javascript" >
+                    function alerta_'.str_replace(' ','',$name).'(){
+                            var nud="";
+                            var nom_est = prompt("Ingrese nombre del curso",nud);
+                            var ape_est = prompt("Ingrese semestre del curso",nud);
+                            var usu_est = prompt("Ingrese codigo del docente al que pertenece",nud);
+                            var pass_est = prompt("Ingrese contraseña del curso","bdd20200");
+                            var cred_est = prompt("Ingrese creditos del curso",nud);
+                            if(nom_est.length>0 && ape_est.length>0 && usu_est.length>0 && pass_est.length>0 && cred_est.length>0){
+                                var condition = confirm("¿Estas seguro de insertar a "+nom_est+"?");
+                                if(condition){
+                                    alert("El curso ha sido insertado");
+                                    window.location="PHP/insertar_curso_admin.php?nom_est="+(nom_est.toLowerCase().charAt(0).toUpperCase() + nom_est.toLowerCase().slice(1))+"&ape_est="+ape_est+"&usu_est="+usu_est+"&pass_est="+pass_est+"&cred_est="+cred_est+"";
+                                }
+                            }else{
+                                alert("No se ha podido insertar el curso, hay campos vacios por favor intentar nuevamente");
+                            }
+                    }
+                </script>
+                <button type="button" class="btn btn-primary" style="margin-bottom:1.5%" onclick="alerta2_'.str_replace(' ','',$name).'()">Eliminar curso</button>
+                ';echo'
+                <script type="text/javascript" >
+                    function alerta2_'.str_replace(' ','',$name).'(){
+                            var nud="";
+                            var cod_est = prompt("Ingrese codigo del curso a eliminar",nud);
+                            if(cod_est.length>0){
+                                var condition = confirm("¿Estas seguro de eliminar a "+cod_est+"?");
+                                if(condition){
+                                    alert("El curso ha sido eliminado");
+                                    window.location="PHP/eliminar_curso_admin.php?cod_est="+cod_est+"";
+                                }
+                            }else{
+                                alert("No se ha podido borrar al curso");
+                            }
+                    }
+                </script>                           
+            ';
         }
     }
 
