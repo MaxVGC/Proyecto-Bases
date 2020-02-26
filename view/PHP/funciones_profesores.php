@@ -61,7 +61,7 @@
                         var cod_est = prompt("Ingrese codigo del estudiante",nud);
                         var corte = prompt("Ingrese corte de la nota a editar","");
                         var nota = prompt("Ingrese nota",0);
-                        if(nota<=5 && nota>=0){
+                        if(nota<=5 && nota>=0 && corte>'.$ncortes.'){
                           if(cod_est!=null && cod_est!=""){
                             var condition = confirm("¿Estas seguro de modificar la nota?");
                             if(condition){
@@ -72,7 +72,7 @@
                             alert("No se ha podido modificar la nota");
                           }
                         }else{
-                          alert("La nota debe estar entre 0 y 5");
+                          alert("Hay valores invalidos");
                         }
                 }
             </script>
@@ -93,17 +93,21 @@
             <script type="text/javascript" >
                 function alerta2_'.str_replace(' ','',$curso).'(){
                         var nud="";
-                        var a = prompt("Ingrese el numero del corte a borrar",nud);
-                        if(a!=null && a!=""){
-                          var condition = confirm("¿Estas seguro de eliminar a corte "+a+"? una vez hecho no podras recuperar los datos");
-                          if(condition){
-                              alert("El corte ha sido eliminado");
-                              window.location="PHP/eliminar_corte.php?cod="+a+"&cur='.$cod_cur_arr[0].'&user='.$userf.'";
+                        if('.$ncortes.'>1){
+                          var a = prompt("Ingrese el numero del corte a borrar",nud);
+                          if(a!=null && a!=""){
+                            var condition = confirm("¿Estas seguro de eliminar a corte "+a+"? una vez hecho no podras recuperar los datos");
+                            if(condition){
+                                alert("El corte ha sido eliminado");
+                                window.location="PHP/eliminar_corte.php?cod="+a+"&cur='.$cod_cur_arr[0].'&user='.$userf.'";
+                            }
+                          }else{
+                            alert("No se ha podido eliminar el corte");
                           }
                         }else{
-                          alert("No se ha podido eliminar al estudiante");
+                          alert("No se ha podido eliminar el corte, tienes que tener minimo un corte");
                         }
-                      }
+                }
                         
             </script>
             <button type="button" class="btn btn-primary" style="margin-bottom:1.5%" onclick="alerta3_'.str_replace(' ','',$curso).'()">Agregar corte</button>
