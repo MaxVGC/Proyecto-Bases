@@ -7,7 +7,7 @@
         $arr = pg_fetch_all_columns($cortes, 0);
         $ncortes=sizeof($arr);
 
-        
+        echo $ncortes;
         echo '
         <div class="accordion" id="accordion_'.str_replace(' ','',$curso).'">
             <div class="card">
@@ -61,7 +61,7 @@
                         var cod_est = prompt("Ingrese codigo del estudiante",nud);
                         var corte = prompt("Ingrese corte de la nota a editar","");
                         var nota = prompt("Ingrese nota",0);
-                        if(nota<=5 && nota>=0 && corte>'.$ncortes.'){
+                        if((nota<=5 && nota>=0) || corte>'.$ncortes.'){
                           if(cod_est!=null && cod_est!=""){
                             var condition = confirm("¿Estas seguro de modificar la nota?");
                             if(condition){
@@ -72,7 +72,7 @@
                             alert("No se ha podido modificar la nota");
                           }
                         }else{
-                          alert("Hay valores invalidos");
+                          alert("Hay valores invalidos "+corte);
                         }
                 }
             </script>
