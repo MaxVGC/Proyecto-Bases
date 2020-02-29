@@ -7,7 +7,6 @@
         $arr = pg_fetch_all_columns($cortes, 0);
         $ncortes=sizeof($arr);
 
-        echo $ncortes;
         echo '
         <div class="accordion" id="accordion_'.str_replace(' ','',$curso).'">
             <div class="card">

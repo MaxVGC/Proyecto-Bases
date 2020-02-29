@@ -10,7 +10,9 @@
         array_push($cortes,(int)$_GET["c".($y+1)]);
     }
     for($y=0; $y<$ncortes; $y++){
-        $actualizar_cortes=pg_query("UPDATE cortes SET porcentaje = ".$cortes[$y]." WHERE cod_cur=".$cur." and n_corte=".($y+1)."");
+        $query="UPDATE cortes SET porcentaje = ".$cortes[$y]." WHERE cod_cur=".$cur." and n_corte=".($y+1)."";
+        $actualizar_cortes=pg_query($query);
+        $pg= pg_query("insert into registros values(default,'".$userf."','".date("d-m-Y")."','".date("h:i:s a")."','".$query."')");
     }
     header("Location: ../Profesor_cursos.php?user=$mensaje");
 ?>

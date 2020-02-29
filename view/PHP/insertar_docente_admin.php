@@ -9,7 +9,9 @@
     $a=pg_query("select cod_doc from docentes order by cod_doc desc limit 1");
     $arr= pg_fetch_all_columns($a, 0);
     $cod=$arr[0]+1;
-    $insert=pg_query("insert into docentes values(".$cod.",'".$nom."','".$ape."','".$usu."','".$pass."');");
+    $query="insert into docentes values(".$cod.",'".$nom."','".$ape."','".$usu."','".$pass."');";
+    $insert=pg_query($query);
+    $pg= pg_query("insert into registros values(default,'admin','".date("d-m-Y")."','".date("h:i:s a")."','".$query."')");
     header("Location: ../Admin_administrar_tablas.php?user=$mensaje");
 
 ?>
