@@ -76,6 +76,13 @@
         }
     }
 
+    function consultar($name){
+        include '../db/conexion.php';
+        $pg=pg_query("select * from estudiantes where cod_est=".$name."");
+        $pg_array=pg_fetch_row($pg,0);
+        echo $name;
+    }
+
     function buttons($name){
         if($name=='estudiantes'){
             echo'
@@ -116,13 +123,32 @@
                                 alert("No se ha podido borrar al estudiante");
                             }
                     }
-                </script>                           
+                </script> 
+                <button type="button" class="btn btn-primary" style="margin-bottom:1.5%" onclick="alerta3_'.str_replace(' ','',$name).'()">Modificar estudiante</button>
+                ';echo'
+                <script type="text/javascript" >
+                    function alerta3_'.str_replace(' ','',$name).'(){
+                            var nud="";
+                            var cod_est = prompt("Ingrese codigo del estudiante a editar",nud);
+                            var nom_est = prompt("Ingrese nombre del estudiante",nud);
+                            var ape_est = prompt("Ingrese apellido del estudiante",nud);
+                            var usu_est = prompt("Ingrese usuario del estudiante",nud);
+                            var pass_est = prompt("Ingrese contraseña del estudiante","bdd20200");
+                            window.location="PHP/insertar_estudiante_admin.php?cod_est="+cod_est+"&nom_est="+(nom_est.toLowerCase().charAt(0).toUpperCase() + nom_est.toLowerCase().slice(1))+"&ape_est="+(ape_est.toLowerCase().charAt(0).toUpperCase() + ape_est.toLowerCase().slice(1))+"&usu_est="+usu_est+"&pass_est="+pass_est+"";
+
+                            <?php consultar(cod_est)?>;
+                    }
+                </script>                          
             ';
         }else if($name=='docentes'){
             echo'
                 <button type="button" class="btn btn-primary" style="margin-bottom:1.5%" onclick="alerta_'.str_replace(' ','',$name).'()">Insertar docente</button>
                 ';echo'
                 <script type="text/javascript" >
+           
+                    var currentDirectory = window.location.pathname.split("/").slice(0, -1).join("/");
+                    console.log(currentDirectory);
+
                     function alerta_'.str_replace(' ','',$name).'(){
                             var nud="";
                             var nom_est = prompt("Ingrese nombre del docente",nud);

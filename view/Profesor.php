@@ -10,7 +10,7 @@
 <head>
     <title>InicioP</title>
     <link rel="icon" type="image/png" href="Images/logo1.png" />
-    <link rel="stylesheet" type="text/css" href="Css/main_leaf.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="Css/Main_leaf.css" media="screen" />
     <meta http-equiv="cache-control" content="max-age=0" />
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="expires" content="0" />
@@ -65,7 +65,7 @@
             </div>
         </nav>
     </div>
-    <script src="Js/main_js.js"></script>
+    <script src="Js/Main_js.js"></script>
     <div style="width:100%;height:92.5%;">
         <div id="div_notas" style="position: absolute;overflow-y: hidden">
             <img src="Images/image.jpg" id="img_tp">

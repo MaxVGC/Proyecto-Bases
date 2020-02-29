@@ -10,7 +10,7 @@
 <head>
     <title>InicioE</title>
     <link rel="icon" type="image/png" href="Images/logo1.png" />
-    <link rel="stylesheet" type="text/css" href="Css/main_leaf.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="Css/Main_leaf.css" media="screen" />
     <meta http-equiv="cache-control" content="max-age=0" />
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="expires" content="0" />
@@ -95,7 +95,7 @@
         </div>
     </div>
 
-    <script src="Js/main_js.js"></script>
+    <script src="Js/Main_js.js"></script>
 </body>
 
 

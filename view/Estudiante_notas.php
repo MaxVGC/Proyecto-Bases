@@ -8,7 +8,7 @@
 <head>
     <title>InicioE</title>
     <link rel="icon" type="image/png" href="Images/logo1.png" />
-    <link rel="stylesheet" type="text/css" href="Css/main_leaf.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="Css/Main_leaf.css" media="screen" />
     <link href="Css/bootstrap.css" rel="stylesheet" />
     <link href="Css/bootstrap-theme.css" rel="stylesheet" />
     <script src="Js/jquery-3.4.1.min.js"></script>
@@ -66,7 +66,7 @@
             </div>
         </nav>
     </div>
-    <script src="Js/main_js.js"></script>
+    <script src="Js/Main_js.js"></script>
 
 
     <div id="div_notas">
