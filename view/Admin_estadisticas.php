@@ -11,6 +11,10 @@
         $pg1_array1=pg_fetch_row($pg1,0);
         $pg1_array2=pg_fetch_row($pg1,1);
         $pg1_array3=pg_fetch_row($pg1,2);
+        $pg2=pg_query("SELECT relname as Table, pg_size_pretty(pg_total_relation_size(relid)) As Size, pg_size_pretty(pg_total_relation_size(relid) - pg_relation_size(relid)) as ez FROM pg_catalog.pg_statio_user_tables ORDER BY pg_total_relation_size(relid) DESC");
+        $pg2_array1=pg_fetch_row($pg2,0);
+        $pg2_array2=pg_fetch_row($pg2,1);
+        $pg2_array3=pg_fetch_row($pg2,2);
 ?>
 
 <head>
@@ -95,8 +99,8 @@
                         datasets: [{
                             label: "N° de estudiantes por curso (solo 3 primeros)",
                             backgroundColor: "rgb(0,0,0)",
-                            data: ["<?php echo $pg_array1[1]?>", "<?php echo $pg_array2[1]?>",
-                                "<?php echo $pg_array3[1]?>"
+                            data: ["<?php echo  $pg_array1[1]?>", "<?php echo $pg_array2[1]?>",
+                                "<?php echo  $pg_array3[1]?>"
                             ]
                         }]
                     },
@@ -151,14 +155,14 @@
                 var chart = new Chart(migrafica3, {
                     type: "bar",
                     data: {
-                        labels: ["<?php echo $pg1_array1[0]?>", "<?php echo $pg1_array2[0]?>",
-                            "<?php echo $pg1_array3[0]?>"
+                        labels: ["<?php echo $pg2_array1[0]?>", "<?php echo $pg2_array2[0]?>",
+                            "<?php echo $pg2_array3[0]?>"
                         ],
                         datasets: [{
-                            label: "Promedio de notas de estudiantes por curso (solo 3 primeros)",
+                            label: "Tablas con mas registros organizadas por peso del archivo",
                             backgroundColor: "rgb(0,0,0)",
-                            data: ["<?php echo $pg1_array1[1]?>", "<?php echo $pg1_array2[1]?>",
-                                "<?php echo $pg1_array3[1]?>"
+                            data: ["<?php echo (int) $pg2_array1[1]?>", "<?php echo (int) $pg2_array2[1]?>",
+                                "<?php echo (int) $pg2_array3[1]?>"
                             ]
                         }]
                     },

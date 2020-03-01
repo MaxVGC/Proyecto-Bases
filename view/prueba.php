@@ -1,3 +1,4 @@
 <?php
-        include 'PHP/funciones_admin.php';
+        $u="64 Kb";
+        echo (int) $u;
 ?>
