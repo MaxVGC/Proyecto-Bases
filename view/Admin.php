@@ -31,6 +31,8 @@
             </li>
             <li><a id="links_estudiante" href="Admin.php?user=<?php echo $recibed; ?>">Inicio</a></li>
             <li><a id="links_estudiante" href="Admin_administrar_tablas.php?user=<?php echo $recibed; ?>">Administrar Tablas</a></li>
+            <li><a id="links_estudiante" href="Admin_estadisticas.php?user=<?php echo $recibed; ?>">Estadisticas</a></li>
+
         </ul>
         <div class="site-footer">
             <label id="F2" style="color:dodgerblue">

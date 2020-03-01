@@ -3,6 +3,7 @@
         $mensaje = base64_decode($recibed);
         include 'PHP/funciones_admin.php';
 ?>
+
 <head>
     <title>InicioA</title>
     <link rel="icon" type="image/png" href="Images/logo1.png" />
@@ -16,6 +17,7 @@
     <link href="Css/bootstrap-theme.css" rel="stylesheet" />
     <script src="Js/jquery-3.4.1.min.js"></script>
     <script src="Js/bootstrap.min.js"></script>
+    <script src="node_modules/chart.js/dist/Chart.js"></script>
 </head>
 
 <body>
@@ -26,7 +28,9 @@
                 <img src="Images/logo1.png" alt="Logo Fazt" class="logo">
             </li>
             <li><a id="links_estudiante" href="Admin.php?user=<?php echo $recibed; ?>">Inicio</a></li>
-            <li><a id="links_estudiante" href="Admin_administrar_tablas.php?user=<?php echo $recibed; ?>">Administrar Tablas</a></li>
+            <li><a id="links_estudiante" href="Admin_administrar_tablas.php?user=<?php echo $recibed; ?>">Administrar
+                    Tablas</a></li>
+            <li><a id="links_estudiante" href="Admin_estadisticas.php?user=<?php echo $recibed; ?>">Estadisticas</a></li>
         </ul>
         <div class="site-footer">
             <label id="F2" style="color:dodgerblue">
@@ -65,11 +69,12 @@
     <div id="div_notas">
 
         <div id="div_notas_container">
-
-            <?php
+            
+                <?php
+                
                 $cursos=for_tablas();
-            ?>
-
+                ?>
+           
         </div>
 
     </div>
@@ -95,7 +100,7 @@
 
         </form>
     </div>
-    
+
 </body>
 
 

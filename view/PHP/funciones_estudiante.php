@@ -4,7 +4,7 @@
         $color='color:green';
         $periodos = pg_query("select cursos_estudiantes.periodo from estudiantes,cursos,cursos_estudiantes where estudiantes.cod_est=cursos_estudiantes.cod_est and cursos_estudiantes.cod_cur=cursos.cod_cur and estudiantes.usu_est='".$userf."' and cursos.nom_cur='".$curso."'");
         $periodos_arr= pg_fetch_all_columns($periodos, 0);
-        $result = pg_query("select notas.n_corte,notas.nota,docentes.nom_doc,docentes.ape_doc from estudiantes,cursos,notas,docentes where estudiantes.cod_est=notas.cod_est and notas.cod_cur=cursos.cod_cur and cursos.cod_doc=docentes.cod_doc and estudiantes.usu_est='".$userf."' and cursos.nom_cur='".$curso."' order by notas.n_corte asc");
+        $result = pg_query("select * from vnotas where usu_est='".$userf."' and nom_cur='".$curso."' order by n_corte asc");
         $cortes = pg_fetch_all_columns($result, 0);
         $notas = pg_fetch_all_columns($result, 1);
         $nombres = pg_fetch_row($result, 0);
