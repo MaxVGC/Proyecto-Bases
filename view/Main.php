@@ -22,14 +22,14 @@
         echo 'alert("El usuario no existe")';
         echo '</script>';
         echo '<script language="javascript">';
-        echo 'window.location="../view/index.php"';
+        echo 'window.location="../view/Index.php"';
         echo '</script>';
       }else{
         echo '<script language="javascript">';
         echo 'alert("Contraseña o Usuario incorrectos")';
         echo '</script>';
         echo '<script language="javascript">';
-        echo 'window.location="../view/index.php"';
+        echo 'window.location="../view/Index.php"';
         echo '</script>';
       }
 	  }

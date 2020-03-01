@@ -55,16 +55,13 @@
                             <center><span>Cambiar contraseña</span></center>
                         </div>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="index.php" style="text-align: center">Cerrar sesión</a>
+                        <a class="dropdown-item" href="Index.php" style="text-align: center">Cerrar sesión</a>
                     </div>
                 </div>
             </div>
         </nav>
     </div>
     <script src="Js/Main_js.js"></script>
-    <script type="module">
-    import Student from './JS/persistence/Student.js'
-    </script>
     <div id="div_notas">
 
         <div id="div_notas_container">

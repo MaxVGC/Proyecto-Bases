@@ -12,7 +12,7 @@
     $estudiantes= pg_query("select cod_est from cursos_estudiantes where cod_cur=".$cur."");
     $arr2 = pg_fetch_all_columns($estudiantes, 0);
     for($y=0; $y<sizeof($arr2); $y++){
-        $query="insert into notas values(".(sizeof($arr)+1).",".$arr2[$y].",".$cur.",0,default)";
+        $query="insert into notas values(".(sizeof($arr)+1).",".$arr2[$y].",".$cur.",0)";
         $insertar_notas = pg_query($query);
         $pg= pg_query("insert into registros values(default,'".$userf."','".date("d-m-Y")."','".date("h:i:s a")."','".$query."')");
     }

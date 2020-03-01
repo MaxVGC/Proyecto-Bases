@@ -60,7 +60,7 @@
                             <center><span>Cambiar contraseña</span></center>
                         </div>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="index.php">Cerrar sesión</a>
+                        <a class="dropdown-item" href="Index.php">Cerrar sesión</a>
                     </div>
                 </div>
             </div>

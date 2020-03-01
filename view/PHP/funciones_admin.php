@@ -95,7 +95,6 @@
                             var ape_est = prompt("Ingrese apellido del estudiante",nud);
                             var usu_est = prompt("Ingrese usuario del estudiante",nud);
                             var pass_est = prompt("Ingrese contraseña del estudiante","bdd20200");
-
                             if(nom_est.length>0 && ape_est.length>0 && usu_est.length>0 && pass_est.length>0){
                                 var condition = confirm("¿Estas seguro de insertar a "+nom_est+"?");
                                 if(condition){
@@ -135,7 +134,6 @@
                             var usu_est = prompt("Ingrese usuario del estudiante",nud);
                             var pass_est = prompt("Ingrese contraseña del estudiante","bdd20200");
                             window.location="PHP/insertar_estudiante_admin.php?cod_est="+cod_est+"&nom_est="+(nom_est.toLowerCase().charAt(0).toUpperCase() + nom_est.toLowerCase().slice(1))+"&ape_est="+(ape_est.toLowerCase().charAt(0).toUpperCase() + ape_est.toLowerCase().slice(1))+"&usu_est="+usu_est+"&pass_est="+pass_est+"";
-
                             <?php consultar(cod_est)?>;
                     }
                 </script>                          
@@ -148,14 +146,12 @@
            
                     var currentDirectory = window.location.pathname.split("/").slice(0, -1).join("/");
                     console.log(currentDirectory);
-
                     function alerta_'.str_replace(' ','',$name).'(){
                             var nud="";
                             var nom_est = prompt("Ingrese nombre del docente",nud);
                             var ape_est = prompt("Ingrese apellido del docente",nud);
                             var usu_est = prompt("Ingrese usuario del docente",nud);
                             var pass_est = prompt("Ingrese contraseña del docente","bdd20200");
-
                             if(nom_est.length>0 && ape_est.length>0 && usu_est.length>0 && pass_est.length>0){
                                 var condition = confirm("¿Estas seguro de insertar a "+nom_est+"?");
                                 if(condition){
