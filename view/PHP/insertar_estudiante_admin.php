@@ -11,7 +11,7 @@
     $cod=$arr[0]+1;
     $query="insert into estudiantes values(".$cod.",'".$nom."','".$ape."','".$usu."','".$pass."')";
     $insert=pg_query($query);
-    $pg= pg_query("insert into registros values(default,'admin','".date("d-m-Y")."','".date("h:i:s a")."','".$query."')");
+    $pg= pg_query("insert into registros values(default,'admin','".date("d-m-Y")."','".date("h:i:s a")."','".str_replace("'",'',$query)."')");
     header("Location: ../Admin_administrar_tablas.php?user=$mensaje");
 
 ?>

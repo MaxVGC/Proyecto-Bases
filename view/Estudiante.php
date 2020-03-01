@@ -89,7 +89,7 @@
                     <input type="password" name="pass_nueva2" class="form-control" id="formGroupExampleInput2" placeholder=""
                         style="width:50%">
                 </div>
-                <input type="submit" name="" value="Buscar" id="boton1" onclick="funcion();">
+                <input type="submit" name="" value="Cambiar contraseña" id="boton1" onclick="funcion();">
 
             </form>
         </div>

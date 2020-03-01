@@ -19,7 +19,7 @@
         }
       }else if(!empty($arr[3]) && !empty($arr[4])){
         echo '<script language="javascript">';
-        echo 'alert("El usuario no existe")';
+        echo 'alert("Valores invalidos")';
         echo '</script>';
         echo '<script language="javascript">';
         echo 'window.location="../view/Index.php"';

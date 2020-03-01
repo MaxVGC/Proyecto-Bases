@@ -63,7 +63,9 @@
 
     function for_datos($name){
         include '../db/conexion.php';
-        $result = pg_query("select * from ".$name."");
+        $result1= pg_query("SELECT column_name FROM information_schema.columns WHERE table_schema = 'public' AND table_name = '".$name."' ");
+        $aux= pg_fetch_row($result1,0);
+        $result = pg_query("select * from ".$name." order by ".$aux[0]." asc");
 
         $arr2 = pg_fetch_all_columns($result, 0);
         for($y=0; $y<sizeof($arr2); $y++){
@@ -137,7 +139,11 @@
                             var ape_est = prompt("Ingrese apellido del estudiante",document.getElementById(cod_est+"_3").innerHTML.split("<")[1].substring(7));
                             var usu_est = prompt("Ingrese usuario del estudiante",document.getElementById(cod_est+"_4").innerHTML.split("<")[1].substring(7));
                             var pass_est = prompt("Ingrese contraseña del estudiante",document.getElementById(cod_est+"_5").innerHTML.split("<")[1].substring(7));
+                            if(nom_est.length>0 && ape_est.length>0 && usu_est.length>0 && pass_est.length>0){
                             window.location="PHP/modificar_estudiante_admin.php?cod_est="+cod_est+"&nom_est="+(nom_est.toLowerCase().charAt(0).toUpperCase() + nom_est.toLowerCase().slice(1))+"&ape_est="+(ape_est.toLowerCase().charAt(0).toUpperCase() + ape_est.toLowerCase().slice(1))+"&usu_est="+usu_est+"&pass_est="+pass_est+"";
+                            }else{
+                                alert("No se ha podido modificar al estudiante, hay campos vacios por favor intentar nuevamente");
+                            }
                     }
                 </script>                          
             ';
@@ -193,7 +199,11 @@
                             var ape_est = prompt("Ingrese apellido del docente",document.getElementById(cod_est+"_3").innerHTML.split("<")[1].substring(7));
                             var usu_est = prompt("Ingrese usuario del docente",document.getElementById(cod_est+"_4").innerHTML.split("<")[1].substring(7));
                             var pass_est = prompt("Ingrese contraseña del docente",document.getElementById(cod_est+"_5").innerHTML.split("<")[1].substring(7));
-                            window.location="PHP/modificar_docente_admin.php?cod_est="+cod_est+"&nom_est="+(nom_est.toLowerCase().charAt(0).toUpperCase() + nom_est.toLowerCase().slice(1))+"&ape_est="+(ape_est.toLowerCase().charAt(0).toUpperCase() + ape_est.toLowerCase().slice(1))+"&usu_est="+usu_est+"&pass_est="+pass_est+"";
+                            if(nom_est.length>0 && ape_est.length>0 && usu_est.length>0 && pass_est.length>0){
+                                window.location="PHP/modificar_docente_admin.php?cod_est="+cod_est+"&nom_est="+(nom_est.toLowerCase().charAt(0).toUpperCase() + nom_est.toLowerCase().slice(1))+"&ape_est="+(ape_est.toLowerCase().charAt(0).toUpperCase() + ape_est.toLowerCase().slice(1))+"&usu_est="+usu_est+"&pass_est="+pass_est+"";
+                            }else{
+                                alert("No se ha podido modificar al docente");
+                            }
                     }
                 </script>                             
             ';
@@ -248,7 +258,11 @@
                             var usu_est = prompt("Ingrese codigo del docente al que pertenece",document.getElementById(cod_est+"_4_c").innerHTML.split("<")[1].substring(7));
                             var pass_est = prompt("Ingrese contraseña del curso",document.getElementById(cod_est+"_5_c").innerHTML.split("<")[1].substring(7));
                             var cred_est = prompt("Ingrese creditos del curso",document.getElementById(cod_est+"_6_c").innerHTML.split("<")[1].substring(7));
+                            if(nom_est.length>0 && ape_est.length>0 && usu_est.length>0 && pass_est.length>0 && cred_est.length>0){
                             window.location="PHP/modificar_curso_admin.php?cod_est="+cod_est+"&nom_est="+(nom_est.toLowerCase().charAt(0).toUpperCase() + nom_est.toLowerCase().slice(1))+"&ape_est="+ape_est+"&usu_est="+usu_est+"&pass_est="+pass_est+"&cred_est="+cred_est+"";
+                            }else{
+                                alert("No se ha podido modificar al curso");
+                            }
                     }
                 </script>                           
             ';
