@@ -1,6 +1,7 @@
 <?php
     function get_nota($userf,$curso) {
         include '../db/conexion.php';
+        $refresh=pg_query("REFRESH MATERIALIZED VIEW vnotas");
         $color='color:green';
         $periodos = pg_query("select cursos_estudiantes.periodo from estudiantes,cursos,cursos_estudiantes where estudiantes.cod_est=cursos_estudiantes.cod_est and cursos_estudiantes.cod_cur=cursos.cod_cur and estudiantes.usu_est='".$userf."' and cursos.nom_cur='".$curso."'");
         $periodos_arr= pg_fetch_all_columns($periodos, 0);
